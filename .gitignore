@@ -1,0 +1,16 @@
+# Python / venv
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+*.egg-info/
+
+# Local config (may contain machine-specific paths)
+.env
+
+# Benchmark output
+bench_results.json
+bench_sweep_*.json
+
+# macOS
+.DS_Store

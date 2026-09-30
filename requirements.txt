@@ -1,0 +1,22 @@
+# PaddleOCR-VL-1.5 (MLX) local OCR server
+# Python 3.12 is the tested target. Install with:  ./setup.sh
+#
+# Core inference stack
+mlx>=0.29                 # Apple Silicon GPU array framework (Metal backend)
+mlx-vlm>=0.7.4            # mlx-vlm; provides the paddleocr_vl model implementation
+transformers>=5.0.0       # processor/tokenizer plumbing used by PaddleOCRVLProcessor
+
+# HTTP layer
+fastapi>=0.115
+uvicorn[standard]>=0.30   # ASGI server; includes uvloop for better throughput
+python-multipart>=0.0.9   # required by FastAPI for multipart/form-data uploads
+pydantic>=2.7
+pydantic-settings>=2.2    # env-driven configuration (OCR_* prefix)
+
+# Media / document handling
+pillow>=10.0              # image decode, EXIF handling, resizing
+pypdfium2>=4.30           # fast PDF page rasterisation (PDFium)
+
+# Observability
+psutil>=5.9               # RSS reporting on /info
+python-dotenv>=1.0        # .env loading (pydantic-settings dependency, listed explicitly)
